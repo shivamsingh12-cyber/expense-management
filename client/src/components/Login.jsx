@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
 const Login = () => {
+
+    
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -230,6 +232,25 @@ const Login = () => {
 </a>
           </p>
         </div>
+
+        {/* need to be removed after some time */}
+        <div style={{ textAlign: 'center', marginTop: '10px' }}>
+  <a 
+    href="#test-dashboard" 
+    style={styles.link}
+    onClick={(e) => {
+      e.preventDefault();
+      if (props.onLogin) {
+        props.onLogin();
+      } else {
+        window.dispatchEvent(new CustomEvent('navigate', { detail: { page: 'dashboard' } }));
+      }
+    }}
+  >
+    Test Dashboard (Skip Login)
+  </a>
+</div>
+{/* up to header */}
       </div>
     </div>
   );
