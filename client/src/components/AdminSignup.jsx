@@ -306,9 +306,16 @@ const AdminSignup = () => {
         <div style={styles.footer}>
           <p>
             Already have an account?{' '}
-            <a href="/login" style={styles.link}>
-              Sign in
-            </a>
+          <a 
+  href="/login" 
+  style={styles.link}
+  onClick={(e) => {
+    e.preventDefault();
+    window.dispatchEvent(new CustomEvent('navigate', { detail: { page: 'login' } }));
+  }}
+>
+  Sign in
+</a>
           </p>
         </div>
       </div>
